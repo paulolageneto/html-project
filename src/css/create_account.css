@@ -57,7 +57,8 @@ body {
 .input-box i {
     position: absolute;
     right: 20px;
-    top: 50%; /* da pra usar o 25% tambem */
+    top: 50%;
+    /* da pra usar o 25% tambem */
     transform: translateY(-50%);
     font-size: 20px;
 }
@@ -75,7 +76,7 @@ body {
 
 .remmember-forgot a {
     text-decoration: none;
-    color:  white;
+    color: white;
 }
 
 .remmember-forgot a:hover {
@@ -118,4 +119,3 @@ register-link a {
 register-link a:hover {
     text-decoration: underline;
 }
-
