@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
     background: linear-gradient(to bottom right, rgb(16, 1, 100) 0%, black 100%);
     display: flex;
     justify-content: center;
