@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="src/css/contato.css">
-    <link rel="stylesheet" href="src/css/menu.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato</title>
+  <link rel="stylesheet" href="src/css/contato.css">
+  <link rel="stylesheet" href="src/css/menu.css">
 </head>
+
 <body class="container mt-5">
-    <header>
-      <nav>
-        <a class="logo" href="/">Administração</a>
-        <div class="mobile-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
-        <ul class="nav-list">
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="usuarios.html">Usuários</a></li>
-          <li><a href="eventos.html">Eventos</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-        <section class="contato-section">
-            <h2>Fale com o Suporte</h2>
+  <header>
+    <nav>
+      <a class="logo" href="/">Administração</a>
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="usuarios.html">Usuários</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="contato-section">
+      <h2>Fale com o Suporte</h2>
 
-            <div id="chat" class="chat-box chat-container">
-                <div class="admin-msg">Olá! Como podemos ajudar?</div>
-            </div>
+      <div id="chat" class="chat-box chat-container">
+        <div class="admin-msg">Olá! Como podemos ajudar?</div>
+      </div>
 
-            <div class="input-group">
-                <input type="text" id="userInput" class="form-control" placeholder="Digite sua mensagem...">
-                <button onclick="enviarMensagem()" class="btn-enviar">Enviar</button>
-            </div>
-        </section>
-    </main>
-    <script src="src/javascript/script.js"></script>
+      <div class="input-group">
+        <input type="text" id="userInput" class="form-control" placeholder="Digite sua mensagem...">
+        <button onclick="enviarMensagem()" class="btn-enviar">Enviar</button>
+      </div>
+    </section>
+  </main>
+  <script src="src/javascript/script.js"></script>
 </body>
+
 </html>
