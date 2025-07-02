@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav>
-            <a class="logo" href="/">Administração</a>
+            <a class="logo" href="menu.html">Administração</a>
             <div class="mobile-menu">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -28,8 +28,8 @@
     </header>
     <main>
         <h1>Administração de Eventos</h1>
-
-        <form id="formEvento">
+        <button id="btnMostrarForm">Cadastrar Evento</button>
+        <form id="formEvento" style="display: none;">
             <label for="nome">Nome do Evento</label>
             <input type="text" id="nome" name="nome" required>
 
@@ -79,7 +79,7 @@
             </tbody>
         </table>
     </main>
-    <script src="src/javascript/eventos.js"></script>
+    <script src="src/javascript/script.js"></script>
 </body>
 
 </html>

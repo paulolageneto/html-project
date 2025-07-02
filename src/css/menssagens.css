@@ -1,0 +1,31 @@
+body {
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background-color: #f1f3f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.mensagens-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.sem-mensagens {
+    font-size: 18px;
+    color: #888;
+}

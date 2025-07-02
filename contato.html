@@ -12,7 +12,7 @@
 <body class="container mt-5">
   <header>
     <nav>
-      <a class="logo" href="/">Administração</a>
+      <a class="logo" href="menu.html">Administração</a>
       <div class="mobile-menu">
         <div class="line1"></div>
         <div class="line2"></div>
@@ -28,7 +28,25 @@
   </header>
   <main>
     <section class="contato-section">
-      <h2>Fale com o Suporte</h2>
+      <h2>Entre em Contato</h2>
+
+      <form class="form-contato">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="assunto">Assunto</label>
+        <input type="text" id="assunto" name="assunto" required>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+        <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+      </form>
+
+      <h2 style="margin-top: 40px;">Chat Rápido com o Suporte</h2>
 
       <div id="chat" class="chat-box chat-container">
         <div class="admin-msg">Olá! Como podemos ajudar?</div>
@@ -39,8 +57,7 @@
         <button onclick="enviarMensagem()" class="btn-enviar">Enviar</button>
       </div>
     </section>
-  </main>
-  <script src="src/javascript/script.js"></script>
+    <script src="src/javascript/script.js"></script>
 </body>
 
 </html>

@@ -1,20 +1,16 @@
-// menu navbar
+// ======= NAVBAR RESPONSIVO =======
 class MobileNavbar {
   constructor(mobileMenu, navList, navLinks) {
     this.mobileMenu = document.querySelector(mobileMenu);
     this.navList = document.querySelector(navList);
     this.navLinks = document.querySelectorAll(navLinks);
     this.activeClass = "active";
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   animateLinks() {
     this.navLinks.forEach((link, index) => {
-      link.style.animation
-        ? (link.style.animation = "")
-        : (link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3
-          }s`);
+      link.style.animation = link.style.animation ? "" : `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
     });
   }
 
@@ -29,90 +25,112 @@ class MobileNavbar {
   }
 
   init() {
-    if (this.mobileMenu) {
-      this.addClickEvent();
-    }
+    if (this.mobileMenu) this.addClickEvent();
     return this;
   }
 }
 
-const mobileNavbar = new MobileNavbar(
-  ".mobile-menu",
-  ".nav-list",
-  ".nav-list li",
-);
-mobileNavbar.init()
+new MobileNavbar(".mobile-menu", ".nav-list", ".nav-list li").init();
 
-// script usuários html
-function abrirModal(nome, email, tipo) {
-  document.getElementById('editNome').value = nome;
-  document.getElementById('editEmail').value = email;
-  document.getElementById('editTipo').value = tipo;
-  document.getElementById('modalEdicao').style.display = 'flex';
-}
 
-function fecharModal() {
-  document.getElementById('modalEdicao').style.display = 'none';
-}
+// ======= USUÁRIOS =======
+document.addEventListener('DOMContentLoaded', function () {
+  const formUsuario = document.getElementById('formUsuario');
+  const btnUsuario = document.getElementById('btnMostrarForm');
 
-// apenas simulação de cadastro na tabela
-document.getElementById('formUsuario').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
-  const tipo = document.getElementById('tipo').value;
+  if (formUsuario && btnUsuario) {
+    btnUsuario.addEventListener('click', function () {
+      formUsuario.style.display = formUsuario.style.display === 'none' || formUsuario.style.display === '' ? 'block' : 'none';
+    });
 
-  const novaLinha = `<tr>
-        <td>${nome}</td>
-        <td>${email}</td>
-        <td>${tipo}</td>
-        <td class="actions">
-          <button onclick=\"abrirModal('${nome}', '${email}', '${tipo}')\">Editar</button>
-          <button>Excluir</button>
-        </td>
-      </tr>`;
+    formUsuario.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const tipo = document.getElementById('tipo').value;
 
-  document.getElementById('tabelaUsuarios').innerHTML += novaLinha;
-  this.reset();
-});
+      const novaLinha = `<tr>
+          <td>${nome}</td>
+          <td>${email}</td>
+          <td>${tipo}</td>
+          <td class="actions">
+            <button onclick="abrirModal('${nome}', '${email}', '${tipo}')">Editar</button>
+            <button>Excluir</button>
+          </td>
+        </tr>`;
 
-// script eventos html
-const imagemInput = document.getElementById('imagem');
-const preview = document.getElementById('preview');
-
-imagemInput.addEventListener('change', function () {
-  const file = imagemInput.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      preview.src = e.target.result;
-      preview.style.display = 'block';
-    }
-    reader.readAsDataURL(file);
+      document.getElementById('tabelaUsuarios').innerHTML += novaLinha;
+      formUsuario.reset();
+    });
   }
 });
 
-document.getElementById('formEvento').addEventListener('submit', function (e) {
-  e.preventDefault();
+function abrirModal(nome, email, tipo) {
+  const modal = document.getElementById('modalEdicao');
+  if (!modal) return;
+  document.getElementById('editNome').value = nome;
+  document.getElementById('editEmail').value = email;
+  document.getElementById('editTipo').value = tipo;
+  modal.style.display = 'flex';
+}
 
-  const nome = document.getElementById('nome').value;
-  const data = document.getElementById('data').value;
-  const local = document.getElementById('local').value;
-  const status = document.getElementById('status').value;
+function fecharModal() {
+  const modal = document.getElementById('modalEdicao');
+  if (modal) modal.style.display = 'none';
+}
 
-  const novaLinha = `<tr>
-        <td>${nome}</td>
-        <td>${data}</td>
-        <td>${local}</td>
-        <td>${status.charAt(0).toUpperCase() + status.slice(1)}</td>
-        <td class="actions">
-          <button>Editar</button>
-          <button>Excluir</button>
-        </td>
-      </tr>`;
 
-  document.getElementById('tabelaEventos').innerHTML += novaLinha;
-  this.reset();
-  preview.src = '';
-  preview.style.display = 'none';
+// ======= EVENTOS =======
+document.addEventListener('DOMContentLoaded', function () {
+  const formEvento = document.getElementById('formEvento');
+  const btnEvento = document.getElementById('btnMostrarForm');
+  const imagemInput = document.getElementById('imagem');
+  const preview = document.getElementById('preview');
+
+  if (btnEvento && formEvento) {
+    btnEvento.addEventListener('click', function () {
+      formEvento.style.display = formEvento.style.display === 'none' || formEvento.style.display === '' ? 'block' : 'none';
+    });
+
+    formEvento.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById('nome').value;
+      const data = document.getElementById('data').value;
+      const local = document.getElementById('local').value;
+      const status = document.getElementById('status').value;
+
+      const novaLinha = `<tr>
+          <td>${nome}</td>
+          <td>${data}</td>
+          <td>${local}</td>
+          <td>${status.charAt(0).toUpperCase() + status.slice(1)}</td>
+          <td class="actions">
+            <button>Editar</button>
+            <button>Excluir</button>
+          </td>
+        </tr>`;
+
+      document.getElementById('tabelaEventos').innerHTML += novaLinha;
+      formEvento.reset();
+      if (preview) {
+        preview.src = '';
+        preview.style.display = 'none';
+      }
+    });
+  }
+
+  if (imagemInput && preview) {
+    imagemInput.addEventListener('change', function () {
+      const file = imagemInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+  }
 });
